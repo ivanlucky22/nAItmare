@@ -1,8 +1,8 @@
-# nAItmare: The OS for Multi-Agent Teams
+# nAItmare: Consistency Layer for AI Teams
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-nAItmare is a **Universal AI Context Architecture**. It acts as the immutable "Operating System" for your synthetic workforce, ensuring every agent follows the exact same laws, regardless of its underlying model.
+**nAItmare** is a template that brings order to the chaos of multi-agent development — ensuring every AI tool in your stack follows the same rules.
 
 > [!TIP]
 > **The Problem:** Modern development teams employ 5+ different AI agents (Cursor, Windsurf, Claude Code, Gemini, GitHub Copilot). These agents "hallucinate" different rules and standards because they lack a single source of truth.
@@ -11,28 +11,49 @@ nAItmare is a **Universal AI Context Architecture**. It acts as the immutable "O
 
 ---
 
-## 🚀 Getting Started
+## 🏛️ How It Works
 
-1. **Define Your Laws**: Update [`.agent/memory/constitution.md`](.agent/memory/constitution.md) with your project's tech stack and coding standards.
-2. **Set Your Team**: Create `.agent/sub-agents/me.md` with your team name (see [below](#-user-identity)).
-3. **Enable Vendor Support**: Create a config file for your AI tool (see [below](#-enable-vendor-support)).
+### Conceptual Model
 
----
+| Layer | Purpose | Contains |
+|-------|---------|----------|
+| **Sub-Agents** | WHO does it + WHAT steps to follow | `backend-developer`, `frontend-developer`, `tech-lead`, `qa`, `devops` |
+| **Skills** | HOW to do atomic tasks | `git`, `test`, `db`, `review-checklist` |
+| **Memory** | Context: rules and team knowledge | `constitution`, `teams/*` |
 
-## 👤 User Identity
+### Directory Structure
 
-Each developer creates a personal (gitignored) file to declare their team:
-
-**`.agent/sub-agents/me.md`**
-```markdown
-# My Identity
-
-team: platform
+```
+.
+├── AGENT.md                              # Entry point — agents read this first
+│
+└── .agent/
+    │
+    ├── memory/                           # Long-term context and governance
+    │   ├── constitution.md               # Immutable rules: tech stack, code standards
+    │   └── teams/                        # Team-specific domain knowledge
+    │       └── _template.md              # Copy and rename for each team
+    │
+    ├── skills/                           # Atomic knowledge modules (HOW-TO)
+    │   ├── git.md                        # Version control: commits, branches, conventions
+    │   ├── test.md                       # Testing: commands, coverage requirements
+    │   ├── db.md                         # Database: migrations, queries, safety rules
+    │   └── review-checklist.md           # Code review: correctness, style, security
+    │
+    └── sub-agents/                       # Specialized personas (WHO + WHAT)
+        ├── me.md                         # User identity: team membership (gitignored)
+        ├── backend-developer.md          # Backend: APIs, services, database logic
+        ├── frontend-developer.md         # Frontend: UI components, pages, client logic
+        ├── tech-lead.md                  # Reviews code: fetch → review → approve/reject
+        ├── qa.md                         # Tests & debugs: reproduce → isolate → fix → verify
+        └── devops.md                     # Deploys: lint → build → test → ship
 ```
 
 ---
 
-## 🔌 Enable Vendor Support
+## 🚀 Getting Started
+
+### 1. Enable Your AI Tool
 
 Create the appropriate config file for your AI tool and add:
 
@@ -40,28 +61,26 @@ Create the appropriate config file for your AI tool and add:
 > CRITICAL: Read AGENT.md first.
 ```
 
-### Configuration File Reference
+See the [Vendor Reference](#-vendor-reference) section below for the correct file name.
 
-| Vendor | Configuration File |
-| :--- | :--- |
-| **Cursor** | `.cursorrules` |
-| **Windsurf** | `.windsurfrules` |
-| **Roo Code** | `.clinerules` |
-| **GitHub Copilot** | `.github/copilot-instructions.md` |
-| **Claude Code** | `CLAUDE.md` |
-| **Gemini CLI** | `GEMINI.md` |
-| **Amazon Q Developer** | `AMAZON_Q.md` |
-| **Auggie CLI** | `.auggie.md` |
-| **CodeBuddy** | `.codebuddy` |
-| **Qoder** | `.qoder/context.md` |
-| **OpenCode** | `.opencode` |
-| **Amp** | `.amp.md` |
-| **Kilo Code** | `.kilo` |
-| **Qwen Code** | `.qwen` |
-| **IBM Bob** | `.bob/config` |
-| **Jules** | `.jules` |
-| **SHAI** | `.shai` |
-| **CODEX CLI** | `CODEX.md` |
+### 2. Define Your Rules
+
+Update [`.agent/memory/constitution.md`](.agent/memory/constitution.md) with your project's tech stack and coding standards.
+
+### 3. Create Your Team Context
+
+Copy `.agent/memory/teams/_template.md` to a new file named after your team (e.g., `platform.md`) and fill in your team's ownership and domain knowledge.
+
+### 4. Set Your Identity
+
+Each developer creates a personal (gitignored) file to declare their team:
+
+**`.agent/sub-agents/me.md`**
+```markdown
+# My Identity
+
+team: [YOUR_TEAM_NAME]
+```
 
 ---
 
@@ -94,45 +113,28 @@ Create the appropriate config file for your AI tool and add:
 
 ---
 
-## 🏛️ AI Infrastructure
+## 🔌 Vendor Reference
 
-### Conceptual Model
-
-| Layer | Purpose | Contains |
-|-------|---------|----------|
-| **Sub-Agents** | WHO does it + WHAT steps to follow | `backend-developer`, `frontend-developer`, `tech-lead`, `qa`, `devops` |
-| **Skills** | HOW to do atomic tasks | `git`, `test`, `db`, `review-checklist` |
-| **Memory** | Context: rules and team knowledge | `constitution`, `teams/*` |
-
-### Directory Structure
-
-```
-.
-├── AGENT.md                              # Entry point — agents read this first
-│
-└── .agent/
-    │
-    ├── memory/                           # Long-term context and governance
-    │   ├── constitution.md               # Immutable rules: tech stack, code standards
-    │   └── teams/                        # Team-specific domain knowledge
-    │       ├── platform.md               # Platform team context
-    │       ├── privacy.md                # Privacy team context
-    │       └── security.md               # Security team context
-    │
-    ├── skills/                           # Atomic knowledge modules (HOW-TO)
-    │   ├── git.md                        # Version control: commits, branches, conventions
-    │   ├── test.md                       # Testing: commands, coverage requirements
-    │   ├── db.md                         # Database: migrations, queries, safety rules
-    │   └── review-checklist.md           # Code review: correctness, style, security
-    │
-    └── sub-agents/                       # Specialized personas (WHO + WHAT)
-        ├── me.md                         # User identity: team membership (gitignored)
-        ├── backend-developer.md          # Backend: APIs, services, database logic
-        ├── frontend-developer.md         # Frontend: UI components, pages, client logic
-        ├── tech-lead.md                  # Reviews code: fetch → review → approve/reject
-        ├── qa.md                         # Tests & debugs: reproduce → isolate → fix → verify
-        └── devops.md                     # Deploys: lint → build → test → ship
-```
+| Vendor | Configuration File |
+| :--- | :--- |
+| **Cursor** | `.cursorrules` |
+| **Windsurf** | `.windsurfrules` |
+| **Roo Code** | `.clinerules` |
+| **GitHub Copilot** | `.github/copilot-instructions.md` |
+| **Claude Code** | `CLAUDE.md` |
+| **Gemini CLI** | `GEMINI.md` |
+| **Amazon Q Developer** | `AMAZON_Q.md` |
+| **Auggie CLI** | `.auggie.md` |
+| **CodeBuddy** | `.codebuddy` |
+| **Qoder** | `.qoder/context.md` |
+| **OpenCode** | `.opencode` |
+| **Amp** | `.amp.md` |
+| **Kilo Code** | `.kilo` |
+| **Qwen Code** | `.qwen` |
+| **IBM Bob** | `.bob/config` |
+| **Jules** | `.jules` |
+| **SHAI** | `.shai` |
+| **CODEX CLI** | `CODEX.md` |
 
 ---
 
