@@ -11,7 +11,8 @@ Execute in order:
    - If missing: prompt user for team or operate without team context
 3. Load `.agent/memory/teams/<team>.md` — team-specific context
 4. Select sub-agent based on task:
-   - Feature Development → [developer](.agent/sub-agents/developer.md)
+   - Backend Development → [backend-developer](.agent/sub-agents/backend-developer.md)
+   - Frontend Development → [frontend-developer](.agent/sub-agents/frontend-developer.md)
    - Code Review → [tech-lead](.agent/sub-agents/tech-lead.md)
    - Testing/Debugging → [qa](.agent/sub-agents/qa.md)
    - Deployment → [devops](.agent/sub-agents/devops.md)
@@ -30,4 +31,4 @@ Priority (highest to lowest):
 |----------|------|----------|
 | Memory | `.agent/memory/` | constitution, team contexts |
 | Skills | `.agent/skills/` | git, test, db, review-checklist |
-| Sub-Agents | `.agent/sub-agents/` | developer, tech-lead, qa, devops |
+| Sub-Agents | `.agent/sub-agents/` | backend-developer, frontend-developer, tech-lead, qa, devops |

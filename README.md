@@ -67,20 +67,29 @@ Create the appropriate config file for your AI tool and add:
 
 ## 💬 Usage Examples
 
-The agent will automatically select the appropriate sub-agent based on your request:
+| Task | Prompt |
+|------|--------|
+| Backend Feature | "As a **backend-developer**, implement PROJ-123. Design: [URL]" |
+| Frontend Feature | "As a **frontend-developer**, implement PROJ-456. Design: [URL]" |
+| Write Tests | "As a **qa**, write tests for the login component" |
+| Debug Issue | "As a **qa**, debug this error: TypeError..." |
+| Code Review | "As a **tech-lead**, review my recent changes" |
+| Deploy | "As a **devops**, deploy to staging" |
 
-| Task | Example Prompt | Sub-Agent |
-|------|----------------|-----------|
-| Implement Feature | "Implement the password reset feature" | `developer` |
-| Write Tests | "Write tests for the login component" | `qa` |
-| Debug Issue | "Debug this error: TypeError..." | `qa` |
-| Code Review | "Review my recent changes" | `tech-lead` |
-| Deploy | "Deploy to staging" | `devops` |
-
-You can also explicitly invoke a sub-agent:
+### Typical Development Flow
 
 ```
-Use the tech-lead sub-agent to review this PR
+1. "As a backend-developer, implement PROJ-123. Design: https://confluence.example.com/page/123"
+   → Agent reads design, creates plan, writes tests first, then implements APIs/services
+
+2. "As a frontend-developer, implement PROJ-456. Design: https://confluence.example.com/page/456"
+   → Agent reads design, creates plan, writes tests first, then implements UI components
+
+3. "As a tech-lead, review my recent changes"
+   → Agent reviews code against standards
+
+4. "As a devops, deploy to staging"
+   → Agent runs lint, build, test, deploy
 ```
 
 ---
@@ -91,7 +100,7 @@ Use the tech-lead sub-agent to review this PR
 
 | Layer | Purpose | Contains |
 |-------|---------|----------|
-| **Sub-Agents** | WHO does it + WHAT steps to follow | `developer`, `tech-lead`, `qa`, `devops` |
+| **Sub-Agents** | WHO does it + WHAT steps to follow | `backend-developer`, `frontend-developer`, `tech-lead`, `qa`, `devops` |
 | **Skills** | HOW to do atomic tasks | `git`, `test`, `db`, `review-checklist` |
 | **Memory** | Context: rules and team knowledge | `constitution`, `teams/*` |
 
@@ -118,7 +127,8 @@ Use the tech-lead sub-agent to review this PR
     │
     └── sub-agents/                       # Specialized personas (WHO + WHAT)
         ├── me.md                         # User identity: team membership (gitignored)
-        ├── developer.md                  # Implements features: plan → code → test → commit
+        ├── backend-developer.md          # Backend: APIs, services, database logic
+        ├── frontend-developer.md         # Frontend: UI components, pages, client logic
         ├── tech-lead.md                  # Reviews code: fetch → review → approve/reject
         ├── qa.md                         # Tests & debugs: reproduce → isolate → fix → verify
         └── devops.md                     # Deploys: lint → build → test → ship
