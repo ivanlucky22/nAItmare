@@ -1,20 +1,20 @@
-# Atomic Skill: Git Operations
+# Skill: Git
 
-> **CONTEXT**: Use this skill when required to interact with version control.
+> Use for version control operations.
 
-## 1. Commit Standards
-- **Format**: Conventional Commits (e.g., `feat: add user login`, `fix: resolve crash`).
-- **Forbidden**: `wip`, `temp`, or vague messages.
+## Commit Format
+- Use Conventional Commits: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`
+- Forbidden: `wip`, `temp`, vague messages
 
-## 2. Branching Strategy
-- **Feature**: `feat/description-of-feature`
-- **Bugfix**: `fix/issue-description`
-- **Hotfix**: `hotfix/urgent-patch`
+## Branch Naming
+- Feature: `feat/<description>`
+- Bugfix: `fix/<description>`
+- Hotfix: `hotfix/<description>`
 
-## 3. Common Commands
+## Commands
 ```bash
-git checkout -b <branch-name>
+git checkout -b <branch>
 git add .
 git commit -m "<type>: <description>"
-git push origin <branch-name>
+git push origin <branch>
 ```

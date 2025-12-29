@@ -1,11 +1,11 @@
-# Atomic Skill: Testing Operations
+# Skill: Testing
 
-> **CONTEXT**: Use this skill for running or writing tests.
+> Use for running or writing tests.
 
-## 1. Test Runner
-- **Unit**: `npm run test:unit` (Jest)
-- **E2E**: `npm run test:e2e` (Playwright)
+## Commands
+- Unit tests: `npm run test:unit` (Jest)
+- E2E tests: `npm run test:e2e` (Playwright)
 
-## 2. Requirements
-- **Coverage**: Maintain >80% coverage on logic.
-- **Failures**: Do not proceed if tests fail.
+## Requirements
+- Maintain >80% coverage on logic.
+- Do not proceed if tests fail.

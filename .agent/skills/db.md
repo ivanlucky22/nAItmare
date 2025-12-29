@@ -1,11 +1,11 @@
-# Atomic Skill: Database Operations
+# Skill: Database
 
-> **CONTEXT**: Use this skill for any SQL or ORM interaction.
+> Use for SQL/ORM operations.
 
-## 1. Safety Rules
-- **Migrations**: Always verify migration files before applying.
-- **Backups**: Ensure backups are confirmed before destructive operations.
+## Safety Rules
+- Verify migration files before applying.
+- Confirm backups exist before destructive operations.
 
-## 2. Standard Procedures
-- **Create**: Use ORM definitions (e.g., Prisma schema, TypeORM entity).
-- **Query**: prefer parameterized queries to prevent SQL injection.
+## Procedures
+- Create: Use ORM schema definitions (Prisma, TypeORM).
+- Query: Use parameterized queries to prevent SQL injection.

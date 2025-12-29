@@ -1,10 +1,10 @@
 # Workflow: Feature Development
 
-> **GOAL**: Implement a new feature from start to finish.
+> Implement a new feature.
 
 ## Steps
-1.  **Plan**: Read requirements and create an implementation plan.
-2.  **Branch**: Create branch using `git.md`.
-3.  **Code**: Implement changes.
-4.  **Test**: Run `test.md` to ensure no regressions.
-5.  **Commit**: Save work using `git.md`.
+1. Plan: Read requirements, create implementation plan.
+2. Branch: Create `feat/` branch (see [git.md](../skills/git.md)).
+3. Code: Implement changes.
+4. Test: Run tests (see [test.md](../skills/test.md)).
+5. Commit: Save work with conventional commit.

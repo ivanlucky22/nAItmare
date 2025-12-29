@@ -1,15 +1,15 @@
-# Atomic Skill: Code Review Checklist
+# Skill: Code Review Checklist
 
-> **CONTEXT**: Use this skill when reviewing code.
+> Use when reviewing code.
 
-## 1. Correctness
-- [ ] Does the code satisfy the detailed requirements?
-- [ ] Are there any obvious bugs?
+## Correctness
+- [ ] Satisfies requirements?
+- [ ] Obvious bugs?
 
-## 2. Style
-- [ ] Does it follow `constitution.md` standards?
-- [ ] Are variable names descriptive?
+## Style
+- [ ] Follows constitution.md standards?
+- [ ] Descriptive variable names?
 
-## 3. Security
-- [ ] Are inputs validated?
-- [ ] Are sensitive data exposed?
+## Security
+- [ ] Inputs validated?
+- [ ] Sensitive data exposed?

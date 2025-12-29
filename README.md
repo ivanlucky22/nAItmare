@@ -1,59 +1,30 @@
 # nAItmare: The OS for Multi-Agent Teams
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+nAItmare is a **Universal AI Context Architecture**. It acts as the immutable "Operating System" for your synthetic workforce, ensuring every agent follows the exact same laws, regardless of its underlying model.
 
-> [!IMPORTANT]
+> [!TIP]
 > **The Problem:** Modern development teams employ 5+ different AI agents (Cursor, Windsurf, Claude Code, Gemini, GitHub Copilot). These agents "hallucinate" different rules and standards because they lack a single source of truth.
 >
-> **The Solution:** nAItmare is a **Universal AI Context Architecture**. It acts as the immutable "Operating System" for your synthetic workforce, ensuring every agent follows the exact same laws, regardless of its underlying model.
+> **The Solution:** By centralizing your standards, skills, and workflows, you ensure that any agent you use behaves as a consistent member of your team.
 
 ---
 
-## 🏛️ Infrastructure Reference
+## 🚀 Getting Started
 
-The repository is structured to serve as a navigable map for AI agents.
-
-### 🧠 The Hub & Governor
-The intelligence core.
-
-- **[AI.md](AI.md)**: The single entry point. Maps the agent to the Hub.
-  - *Instruction*: "Read this first."
-- **[.specify/memory/constitution.md](.specify/memory/constitution.md)**: The immutable laws (Tech Stack, Code Standards).
-  - *Instruction*: "Follow these rules or stop."
-- **[.specify/memory/plan.md](.specify/memory/plan.md)**: The active task list and roadmap.
-  - *Instruction*: "Check what needs to be done."
-
-### 🥉 Tier 1: Atomic Skills (`.agent/skills/`)
-Reusable "How-To" modules.
-
-- **[git.md](.agent/skills/git.md)**: Standardized commit/branching protocols (Conventional Commits).
-- **[db.md](.agent/skills/db.md)**: Safe procedures for SQL/ORM operations.
-- **[test.md](.agent/skills/test.md)**: Command lines for Jest and Playwright.
-- **[review-checklist.md](.agent/skills/review-checklist.md)**: Criteria for code review (Styles, Security).
-
-### 🥈 Tier 2: Standard Workflows (`.agent/workflows/`)
-Orchestrated processes combining skills.
-
-- **[feature-dev.md](.agent/workflows/feature-dev.md)**: `plan` → `code` → `test` → `commit`.
-- **[bug-fix.md](.agent/workflows/bug-fix.md)**: `reproduce` → `fix` → `verify`.
-- **[deploy.md](.agent/workflows/deploy.md)**: `lint` → `build` → `test` → `ship`.
-- **[pr-review.md](.agent/workflows/pr-review.md)**: `fetch` → `review` → `report`.
-
-### 🥇 Tier 3: Sub-Agent Personas (`.agent/sub-agents/`)
-Specialized roles assigned to specific workflows.
-
-- **[tech-lead.md](.agent/sub-agents/tech-lead.md)**: Reviewer & Standard Enforcer. Runs `pr-review`.
-- **[qa.md](.agent/sub-agents/qa.md)**: Tester & Bug Hunter. Runs `bug-fix`.
-- **[devops.md](.agent/sub-agents/devops.md)**: Builder & Shipper. Runs `deploy`.
+1.  **Define Your Laws**: Update [`.specify/memory/constitution.md`](.specify/memory/constitution.md) with your project's technology stack and coding standards.
+2.  **Enable Vendor Support**: Create a configuration file for your AI tool (see [below](#-enable-vendor-support)) and add the mandatory instruction.
+3.  **Manage the Roadmap**: Keep [`.specify/memory/plan.md`](.specify/memory/plan.md) updated so your agents always know what to work on.
 
 ---
 
 ## 🔌 Enable Vendor Support
 
-nAItmare is compatible with all AI agents. To enable support, simply create the appropriate configuration file for your tool and add the following line:
+To connect an AI agent to nAItmare, create the appropriate configuration file and add the following line:
 
 ```markdown
-> **CRITICAL**: Before processing any user request, you MUST read the Hub at `AI.md` in the root directory.
+> **CRITICAL**: Before processing any user request, you MUST read the Hub at AGENT.md in the root directory.
 ```
 
 ### Configuration File Reference
@@ -78,3 +49,31 @@ nAItmare is compatible with all AI agents. To enable support, simply create the 
 | **Jules** | `.jules` |
 | **SHAI** | `.shai` |
 | **CODEX CLI** | `CODEX.md` |
+
+---
+
+## 🏛️ Project Structure
+
+```
+.
+├── AGENT.md                     # AI Entry Point (The Hub)
+├── .specify/memory/
+│   ├── constitution.md          # Immutable laws & tech stack
+│   └── plan.md                  # Active roadmap & tasks
+└── .agent/
+    ├── skills/                  # Atomic "How-To" modules
+    ├── workflows/               # Orchestrated processes
+    └── sub-agents/              # Role-based personas
+```
+
+---
+
+## 🤝 Contributing
+
+This is a living architecture. Feel free to add new skills or workflows to the `.agent/` directory to extend your team's capabilities.
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
