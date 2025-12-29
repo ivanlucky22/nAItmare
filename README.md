@@ -13,18 +13,31 @@ nAItmare is a **Universal AI Context Architecture**. It acts as the immutable "O
 
 ## 🚀 Getting Started
 
-1.  **Define Your Laws**: Update [`.specify/memory/constitution.md`](.specify/memory/constitution.md) with your project's technology stack and coding standards.
-2.  **Enable Vendor Support**: Create a configuration file for your AI tool (see [below](#-enable-vendor-support)) and add the mandatory instruction.
-3.  **Manage the Roadmap**: Keep [`.specify/memory/plan.md`](.specify/memory/plan.md) updated so your agents always know what to work on.
+1. **Define Your Laws**: Update [`.agent/memory/constitution.md`](.agent/memory/constitution.md) with your project's tech stack and coding standards.
+2. **Set Your Team**: Create `.agent/sub-agents/me.md` with your team name (see [below](#-user-identity)).
+3. **Enable Vendor Support**: Create a config file for your AI tool (see [below](#-enable-vendor-support)).
+
+---
+
+## 👤 User Identity
+
+Each developer creates a personal (gitignored) file to declare their team:
+
+**`.agent/sub-agents/me.md`**
+```markdown
+# My Identity
+
+team: platform
+```
 
 ---
 
 ## 🔌 Enable Vendor Support
 
-To connect an AI agent to nAItmare, create the appropriate configuration file and add the following line:
+Create the appropriate config file for your AI tool and add:
 
 ```markdown
-> **CRITICAL**: Before processing any user request, you MUST read the Hub at AGENT.md in the root directory.
+> CRITICAL: Read AGENT.md first.
 ```
 
 ### Configuration File Reference
@@ -52,28 +65,30 @@ To connect an AI agent to nAItmare, create the appropriate configuration file an
 
 ---
 
-## 🏛️ Project Structure
+## 🏛️ AI Infrastructure
 
 ```
 .
-├── AGENT.md                     # AI Entry Point (The Hub)
-├── .specify/memory/
-│   ├── constitution.md          # Immutable laws & tech stack
-│   └── plan.md                  # Active roadmap & tasks
+├── AGENT.md                          # AI Entry Point
 └── .agent/
-    ├── skills/                  # Atomic "How-To" modules
-    ├── workflows/               # Orchestrated processes
-    └── sub-agents/              # Role-based personas
+    ├── memory/
+    │   ├── constitution.md           # Global rules
+    │   └── teams/
+    │       ├── platform.md
+    │       ├── privacy.md
+    │       └── security.md
+    │
+    ├── skills/                       # Atomic how-to modules
+    ├── workflows/                    # Orchestrated processes
+    └── sub-agents/
+        ├── me.md                     # User identity (gitignored)
+        ├── tech-lead.md
+        ├── qa.md
+        └── devops.md
 ```
-
----
-
-## 🤝 Contributing
-
-This is a living architecture. Feel free to add new skills or workflows to the `.agent/` directory to extend your team's capabilities.
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE).
