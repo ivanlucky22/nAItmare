@@ -1,11 +1,20 @@
-# Privacy Team
+# Team: Privacy
+
+> Team context template. Customize for your team.
 
 ## Ownership
-- Data Catalog
-- Consent Manager
-- PII Scanner
+
+List components this team owns:
+- [Component 1]
+- [Component 2]
 
 ## Domain Knowledge
-- GDPR and CCPA compliance required.
-- All PII must be tagged in the data catalog.
-- Consent changes trigger async events via Kafka.
+
+Key technical decisions and patterns:
+- [Decision 1]
+- [Decision 2]
+
+## External Dependencies
+
+Services or systems this team integrates with:
+- [Dependency 1]

@@ -1,11 +1,20 @@
-# Platform Team
+# Team: Platform
+
+> Team context template. Customize for your team.
 
 ## Ownership
-- Auth Service
-- Core API
-- Shared Libraries
+
+List components this team owns:
+- [Component 1]
+- [Component 2]
 
 ## Domain Knowledge
-- Auth uses JWT with refresh token rotation.
-- Core API is the gateway for all client requests.
-- Database: PostgreSQL via Prisma ORM.
+
+Key technical decisions and patterns:
+- [Decision 1]
+- [Decision 2]
+
+## External Dependencies
+
+Services or systems this team integrates with:
+- [Dependency 1]

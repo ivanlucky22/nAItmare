@@ -7,7 +7,7 @@ nAItmare is a **Universal AI Context Architecture**. It acts as the immutable "O
 > [!TIP]
 > **The Problem:** Modern development teams employ 5+ different AI agents (Cursor, Windsurf, Claude Code, Gemini, GitHub Copilot). These agents "hallucinate" different rules and standards because they lack a single source of truth.
 >
-> **The Solution:** By centralizing your standards, skills, and workflows, you ensure that any agent you use behaves as a consistent member of your team.
+> **The Solution:** By centralizing your standards, skills, and sub-agents, you ensure that any agent you use behaves as a consistent member of your team.
 
 ---
 
@@ -65,26 +65,63 @@ Create the appropriate config file for your AI tool and add:
 
 ---
 
+## 💬 Usage Examples
+
+The agent will automatically select the appropriate sub-agent based on your request:
+
+| Task | Example Prompt | Sub-Agent |
+|------|----------------|-----------|
+| Implement Feature | "Implement the password reset feature" | `developer` |
+| Write Tests | "Write tests for the login component" | `qa` |
+| Debug Issue | "Debug this error: TypeError..." | `qa` |
+| Code Review | "Review my recent changes" | `tech-lead` |
+| Deploy | "Deploy to staging" | `devops` |
+
+You can also explicitly invoke a sub-agent:
+
+```
+Use the tech-lead sub-agent to review this PR
+```
+
+---
+
 ## 🏛️ AI Infrastructure
+
+### Conceptual Model
+
+| Layer | Purpose | Contains |
+|-------|---------|----------|
+| **Sub-Agents** | WHO does it + WHAT steps to follow | `developer`, `tech-lead`, `qa`, `devops` |
+| **Skills** | HOW to do atomic tasks | `git`, `test`, `db`, `review-checklist` |
+| **Memory** | Context: rules and team knowledge | `constitution`, `teams/*` |
+
+### Directory Structure
 
 ```
 .
-├── AGENT.md                          # AI Entry Point
+├── AGENT.md                              # Entry point — agents read this first
+│
 └── .agent/
-    ├── memory/
-    │   ├── constitution.md           # Global rules
-    │   └── teams/
-    │       ├── platform.md
-    │       ├── privacy.md
-    │       └── security.md
     │
-    ├── skills/                       # Atomic how-to modules
-    ├── workflows/                    # Orchestrated processes
-    └── sub-agents/
-        ├── me.md                     # User identity (gitignored)
-        ├── tech-lead.md
-        ├── qa.md
-        └── devops.md
+    ├── memory/                           # Long-term context and governance
+    │   ├── constitution.md               # Immutable rules: tech stack, code standards
+    │   └── teams/                        # Team-specific domain knowledge
+    │       ├── platform.md               # Platform team context
+    │       ├── privacy.md                # Privacy team context
+    │       └── security.md               # Security team context
+    │
+    ├── skills/                           # Atomic knowledge modules (HOW-TO)
+    │   ├── git.md                        # Version control: commits, branches, conventions
+    │   ├── test.md                       # Testing: commands, coverage requirements
+    │   ├── db.md                         # Database: migrations, queries, safety rules
+    │   └── review-checklist.md           # Code review: correctness, style, security
+    │
+    └── sub-agents/                       # Specialized personas (WHO + WHAT)
+        ├── me.md                         # User identity: team membership (gitignored)
+        ├── developer.md                  # Implements features: plan → code → test → commit
+        ├── tech-lead.md                  # Reviews code: fetch → review → approve/reject
+        ├── qa.md                         # Tests & debugs: reproduce → isolate → fix → verify
+        └── devops.md                     # Deploys: lint → build → test → ship
 ```
 
 ---

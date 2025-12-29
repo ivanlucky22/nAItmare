@@ -6,13 +6,23 @@
 
 Execute in order:
 
-1. Load [constitution.md](.agent/memory/constitution.md) — immutable rules.
-2. Load [me.md](.agent/sub-agents/me.md) — identify user's team.
-3. Load `.agent/memory/teams/<team>.md` — team-specific context.
-4. Select persona (if applicable):
-   - Code Review → [tech-lead.md](.agent/sub-agents/tech-lead.md)
-   - Testing → [qa.md](.agent/sub-agents/qa.md)
-   - Deployment → [devops.md](.agent/sub-agents/devops.md)
+1. Load [constitution.md](.agent/memory/constitution.md) — immutable rules
+2. Load [me.md](.agent/sub-agents/me.md) — identify user's team
+   - If missing: prompt user for team or operate without team context
+3. Load `.agent/memory/teams/<team>.md` — team-specific context
+4. Select sub-agent based on task:
+   - Feature Development → [developer](.agent/sub-agents/developer.md)
+   - Code Review → [tech-lead](.agent/sub-agents/tech-lead.md)
+   - Testing/Debugging → [qa](.agent/sub-agents/qa.md)
+   - Deployment → [devops](.agent/sub-agents/devops.md)
+
+## Conflict Resolution
+
+Priority (highest to lowest):
+1. constitution.md
+2. Team context
+3. Sub-agent instructions
+4. User instructions
 
 ## Resource Index
 
@@ -20,5 +30,4 @@ Execute in order:
 |----------|------|----------|
 | Memory | `.agent/memory/` | constitution, team contexts |
 | Skills | `.agent/skills/` | git, test, db, review-checklist |
-| Workflows | `.agent/workflows/` | feature-dev, bug-fix, deploy, pr-review |
-| Personas | `.agent/sub-agents/` | me, tech-lead, qa, devops |
+| Sub-Agents | `.agent/sub-agents/` | developer, tech-lead, qa, devops |

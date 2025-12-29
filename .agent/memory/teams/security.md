@@ -1,11 +1,20 @@
-# Security Team
+# Team: Security
+
+> Team context template. Customize for your team.
 
 ## Ownership
-- Vulnerability Scanner
-- Access Control Service
-- Audit Logger
+
+List components this team owns:
+- [Component 1]
+- [Component 2]
 
 ## Domain Knowledge
-- All external inputs must be sanitized.
-- Access control uses RBAC model.
-- Audit logs are immutable and retained for 7 years.
+
+Key technical decisions and patterns:
+- [Decision 1]
+- [Decision 2]
+
+## External Dependencies
+
+Services or systems this team integrates with:
+- [Dependency 1]

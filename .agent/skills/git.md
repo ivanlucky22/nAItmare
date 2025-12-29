@@ -1,10 +1,20 @@
-# Skill: Git
+---
+name: git
+description: Use for version control operations including commits, branching, and pushing code.
+---
 
-> Use for version control operations.
+# Git Operations
 
 ## Commit Format
-- Use Conventional Commits: `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `chore:`
-- Forbidden: `wip`, `temp`, vague messages
+Use Conventional Commits:
+- `feat:` - new feature
+- `fix:` - bug fix
+- `docs:` - documentation
+- `refactor:` - code restructuring
+- `test:` - adding tests
+- `chore:` - maintenance
+
+Forbidden: `wip`, `temp`, vague messages
 
 ## Branch Naming
 - Feature: `feat/<description>`
