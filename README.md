@@ -31,6 +31,7 @@
     │
     ├── memory/                           # Long-term context and governance
     │   ├── constitution.md               # Immutable rules: tech stack, code standards
+    │   ├── general-context.md            # Shared context for ALL teams
     │   └── teams/                        # Team-specific domain knowledge
     │       └── _template.md              # Copy and rename for each team
     │

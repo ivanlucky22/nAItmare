@@ -7,10 +7,11 @@
 Execute in order:
 
 1. Load [constitution.md](.agent/memory/constitution.md) — immutable rules
-2. Load [me.md](.agent/sub-agents/me.md) — identify user's team
+2. Load [general-context.md](.agent/memory/general-context.md) — shared context for all teams
+3. Load [me.md](.agent/sub-agents/me.md) — identify user's team
    - If missing: prompt user for team or operate without team context
-3. Load `.agent/memory/teams/<team>.md` — team-specific context
-4. Select sub-agent based on task:
+4. Load `.agent/memory/teams/<team>.md` — team-specific context
+5. Select sub-agent based on task:
    - Backend Development → [backend-developer](.agent/sub-agents/backend-developer.md)
    - Frontend Development → [frontend-developer](.agent/sub-agents/frontend-developer.md)
    - Code Review → [tech-lead](.agent/sub-agents/tech-lead.md)
@@ -21,9 +22,10 @@ Execute in order:
 
 Priority (highest to lowest):
 1. constitution.md
-2. Team context
-3. Sub-agent instructions
-4. User instructions
+2. general-context.md (shared context)
+3. Team-specific context
+4. Sub-agent instructions
+5. User instructions
 
 ## Resource Index
 
