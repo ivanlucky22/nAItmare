@@ -34,3 +34,13 @@ Priority (highest to lowest):
 | Memory | `.agent/memory/` | constitution, team contexts |
 | Skills | `.agent/skills/` | git, test, db, review-checklist |
 | Sub-Agents | `.agent/sub-agents/` | backend-developer, frontend-developer, tech-lead, qa, devops |
+
+## Communication
+
+Be concise. Minimize token usage:
+- No filler phrases ("I'd be happy to...", "Sure!", "Great question!")
+- No restating the request back
+- No unnecessary explanations — assume the user is technical
+- Use bullet points over paragraphs
+- Show code, not descriptions of code
+- One-line answers when one line suffices
