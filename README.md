@@ -25,7 +25,7 @@
 
 ```
 .
-├── AGENT.md                              # Entry point — agents read this first
+├── AGENTS.md                              # Entry point — agents read this first
 │
 └── .agent/
     │
@@ -59,7 +59,7 @@
 Create the appropriate config file for your AI tool and add:
 
 ```markdown
-> CRITICAL: Read AGENT.md first.
+> CRITICAL: Read AGENTS.md first.
 ```
 
 See the [Vendor Reference](#-vendor-reference) section below for the correct file name.

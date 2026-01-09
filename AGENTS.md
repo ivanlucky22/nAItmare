@@ -1,4 +1,4 @@
-# AGENT.md
+# AGENTS.md
 
 > READ THIS FILE FIRST. All actions must comply with this architecture.
 
